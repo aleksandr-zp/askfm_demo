@@ -1,11 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="AskFM siute" verbose="1">
-    <test name="AskFMTest">
-
+    <test name="LoginTest">
         <classes>
             <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="SendMessageTest">
+        <classes>
             <class name="tests.SendQuestionTest"/>
         </classes>
     </test>
-
 </suite>

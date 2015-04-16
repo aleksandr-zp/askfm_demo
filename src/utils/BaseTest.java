@@ -1,6 +1,7 @@
 package utils;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -12,10 +13,10 @@ public class BaseTest {
     @BeforeClass
     public void driverSetUp() {
 
-        driver = new FirefoxDriver();
+//        driver = new FirefoxDriver();
 
-//        System.setProperty("webdriver.chrome.driver", "D:\\Java_\\Java_EE\\chromedriver.exe");
-//        driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "D:\\Java_\\Java_EE\\chromedriver.exe");
+        driver = new ChromeDriver();
 
     }
 

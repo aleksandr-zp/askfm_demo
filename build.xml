@@ -21,6 +21,8 @@
     <target name="prepare" description="Create all needed dirs and build jar file with test classes">
         <!--Delete bin directory-->
         <delete dir="${bin.dir}"/>
+        <!--Delete jar directory-->
+        <delete dir="${jar.dir}"/>
 
         <!--Create main dirs-->
         <mkdir dir="${jar.dir}"/>
