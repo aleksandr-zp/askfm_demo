@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="guice-3.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/guice-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/reportng-1.1.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/selenium-server-standalone-2.45.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/testng-6.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/velocity-dep-1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
