@@ -18,19 +18,19 @@ public class LoginPage extends BasePage {
     }
 
     public void login(String name, String password) {
+        Reporter.log("Login");
         type(name, "login", By.id("login"));
         type(password, "password", By.id("password"));
-        click("Entry", By.id("logBox_submit-button"));
+        click("logBox_submit-button", By.id("logBox_submit-button"));
         waitForVisibilityResult("link-logout", By.className("link-logout"));
-
     }
 
     public void loginFailure(String name, String password) {
+        Reporter.log("Login");
         type(name, "login", By.id("login"));
         type(password, "password", By.id("password"));
-        click("Entry", By.id("logBox_submit-button"));
+        click("logBox_submit-button", By.id("logBox_submit-button"));
+        //        Alert not always be displayed
         waitForVisibilityResult("logBox_recover", By.id("logBox_recover"));
-//        not always be displayed
-//        waitForVisibilityResult("logBox_form-alert", By.id("logBox_form-alert"));
     }
 }

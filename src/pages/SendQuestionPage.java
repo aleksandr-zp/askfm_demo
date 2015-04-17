@@ -21,7 +21,7 @@ public class SendQuestionPage extends BasePage {
 
     public void sendQuestion() {
         Reporter.log("Send  question");
-        driver.findElement(By.id("question_submit")).click();
+        click("question_submit", By.id("question_submit"));
         waitForVisibilityResult("text confirm that message was sent", By.id("reMotivation_box"));
     }
 }

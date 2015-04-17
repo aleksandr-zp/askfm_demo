@@ -27,12 +27,15 @@ public class GeneralActions {
 
     public void login(String name, String password) {
         loginPage.open();
-        loginPage.click("link-login", By.className("link-login"), "logBox", By.id("logBox"));
+        loginPage.click("link-login", By.className("link-login"));
+        loginPage.waitForVisibilityResult("logBox", By.id("logBox"));
         loginPage.login(name, password);
     }
+
     public void loginFailure(String name, String password) {
         loginPage.open();
-        loginPage.click("link-login", By.className("link-login"),"logBox", By.id("logBox"));
+        loginPage.click("link-login", By.className("link-login"));
+        loginPage.waitForVisibilityResult("logBox", By.id("logBox"));
         loginPage.loginFailure(name, password);
     }
 

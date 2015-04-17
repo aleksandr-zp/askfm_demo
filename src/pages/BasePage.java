@@ -15,22 +15,18 @@ public class BasePage {
         this.driver = driver;
     }
 
-    public void waitForVisibilityResult(String name, By locator){
+    public void waitForVisibilityResult(String name, By locator) {
         Reporter.log("Wait for " + name);
         new WebDriverWait(driver, 15).until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-    public void click(String targetName, By targetLocator, String dstName, By dstLocator){
-        Reporter.log("Click on : " + targetName);
-        driver.findElement(targetLocator).click();
-        waitForVisibilityResult(dstName, dstLocator);
-    }
-    public void click(String targetName, By targetLocator){
+
+    public void click(String targetName, By targetLocator) {
         Reporter.log("Click on : " + targetName);
         driver.findElement(targetLocator).click();
     }
 
-    public void type(String text, String locatorName, By locator){
-        Reporter.log(String.format("Type in textarea %s : %s",locatorName, text));
+    public void type(String text, String locatorName, By locator) {
+        Reporter.log(String.format("Type in textarea %s : %s", locatorName, text));
         WebElement inputLogin = driver.findElement(locator);
         inputLogin.sendKeys(text);
     }
