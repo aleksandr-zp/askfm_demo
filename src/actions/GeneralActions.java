@@ -2,11 +2,11 @@ package actions;
 
 
 import blocks.MenuBlock;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 import pages.LoginPage;
 import pages.SendQuestionPage;
+import utils.Reporter;
 
 public class GeneralActions {
 
@@ -26,23 +26,28 @@ public class GeneralActions {
     }
 
     public void login(String name, String password) {
-        loginPage.open();
-        loginPage.click("link-login", By.className("link-login"));
-        loginPage.waitForVisibilityResult("logBox", By.id("logBox"));
-        loginPage.login(name, password);
+        Reporter.log("Login");
+        loginPage.openMainPage();
+        loginPage.clickOpenLoginFormButton();
+        loginPage.typeLoginName(name);
+        loginPage.typeLoginPassword(password);
+        loginPage.clickLoginButton();
+        loginPage.waitForVisibilityResultLoginSuccess();
     }
 
     public void loginFailure(String name, String password) {
-        loginPage.open();
-        loginPage.click("link-login", By.className("link-login"));
-        loginPage.waitForVisibilityResult("logBox", By.id("logBox"));
-        loginPage.loginFailure(name, password);
+        Reporter.log("Login");
+        loginPage.openMainPage();
+        loginPage.clickOpenLoginFormButton();
+        loginPage.typeLoginName(name);
+        loginPage.typeLoginPassword(password);
+        loginPage.clickLoginButton();
+        loginPage.waitForVisibilityResultLoginFailure();
     }
 
 
     public void logout() {
-        menuBlock.logout();
-        page.waitForVisibilityResult("link-login", By.className("link-login"));
+        menuBlock.clickLogout();
     }
 
     public int getCountQuestions() {
@@ -51,8 +56,8 @@ public class GeneralActions {
 
     public void sendQuestion(String friendName, String question) {
         sendQuestionPage.openFriendForm(friendName);
-        sendQuestionPage.type(question, "profile-input", By.id("profile-input"));
-        sendQuestionPage.sendQuestion();
+        sendQuestionPage.typeQuestion(question);
+        sendQuestionPage.clickSendQuestionButton();
     }
 
 }

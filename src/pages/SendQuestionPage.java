@@ -19,9 +19,13 @@ public class SendQuestionPage extends BasePage {
         waitForVisibilityResult("profile-input", By.id("profile-input"));
     }
 
-    public void sendQuestion() {
+    public void clickSendQuestionButton() {
         Reporter.log("Send  question");
         click("question_submit", By.id("question_submit"));
         waitForVisibilityResult("text confirm that message was sent", By.id("reMotivation_box"));
+    }
+
+    public void typeQuestion(String question) {
+        type(question, "profile-input", By.id("profile-input"));
     }
 }
