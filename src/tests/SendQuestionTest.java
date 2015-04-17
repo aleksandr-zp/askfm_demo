@@ -13,7 +13,7 @@ public class SendQuestionTest extends BaseTest {
     private int questionsCountBefore;
     private int questionsCountAfter;
     private String questionText = "How are you?";
-    private String xpathFriend = "//div[@class='people-name']/a[@href= '/qa3905test']";
+    private String friendName = "qa3905test";
     private GeneralActions generalActions;
 
     @BeforeClass()
@@ -22,20 +22,26 @@ public class SendQuestionTest extends BaseTest {
 
     }
 
-    @Test(dataProvider = "loginQuestion1", dataProviderClass = StaticProvider.class)
+    @Test(dataProvider = "personQuestions1", dataProviderClass = StaticProvider.class)
     public void countQuestionsBeforeTest(String login1, String password1) {
-        questionsCountBefore = generalActions.getCountQuestions(login1, password1);
+        generalActions.login(login1, password1);
+        questionsCountBefore = generalActions.getCountQuestions();
+        generalActions.logout();
     }
 
-    @Test(dependsOnMethods = {"countQuestionsBeforeTest"}, dataProvider = "loginQuestion2", dataProviderClass = StaticProvider.class)
+    @Test(dependsOnMethods = {"countQuestionsBeforeTest"}, dataProvider = "personQuestions2", dataProviderClass = StaticProvider.class)
     public void sendMessageTest(String login2, String password2) {
-        generalActions.sendQuestion(login2, password2, By.xpath(xpathFriend), questionText);
+        generalActions.login(login2, password2);
+        generalActions.sendQuestion(friendName, questionText);
+        generalActions.logout();
 
     }
 
-    @Test(dependsOnMethods = {"sendMessageTest"}, dataProvider = "loginQuestion1", dataProviderClass = StaticProvider.class)
+    @Test(dependsOnMethods = {"sendMessageTest"}, dataProvider = "personQuestions1", dataProviderClass = StaticProvider.class)
     public void receiveMessageTest(String login1, String password1) {
-        questionsCountAfter = generalActions.getCountQuestions(login1, password1);
+        generalActions.login(login1, password1);
+        questionsCountAfter = generalActions.getCountQuestions();
+        generalActions.logout();
         Assert.assertTrue(questionsCountAfter > questionsCountBefore, String.format("Count questions before sending message is '%d' and after - is '%d' ", questionsCountBefore, questionsCountAfter));
     }
 }

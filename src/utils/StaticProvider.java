@@ -8,24 +8,34 @@ package utils;
 import org.testng.annotations.DataProvider;
 
 public class StaticProvider {
-    @DataProvider(name = "login")
-    public static Object[][] createData() {
-        return new Object[][]{
-                {"qa3905test", "password!"},
-                {"aleksandr_aleksandrov", "password!"},
-                {"aleksandr_aleksandrov_ff", "123456"}
-        };
-    }
-
-    @DataProvider(name = "loginQuestion1")
+    @DataProvider(name = "person1")
     public static Object[][] createData1() {
         return new Object[][]{
                 {"qa3905test", "password!"}
         };
     }
-
-    @DataProvider(name = "loginQuestion2")
+    @DataProvider(name = "person2")
     public static Object[][] createData2() {
+        return new Object[][]{
+                {"aleksandr_aleksandrov", "password!"}
+        };
+    }
+    @DataProvider(name = "person3")
+    public static Object[][] createData3() {
+        return new Object[][]{
+                {"aleksandr_aleksandrov_ff", "123456"}
+        };
+    }
+
+    @DataProvider(name = "personQuestions1")
+    public static Object[][] createData4() {
+        return new Object[][]{
+                {"qa3905test", "password!"}
+        };
+    }
+
+    @DataProvider(name = "personQuestions2")
+    public static Object[][] createData5() {
         return new Object[][]{
                 {"qa3906test", "password!"}
         };
