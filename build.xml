@@ -9,6 +9,9 @@
     <property name="jar.dir" location="${build.dir}${file.separator}jar"/>
     <property name="report.dir" location="${build.dir}${file.separator}report"/>
 
+    <!--<property name="browser" value="chrome"/>-->
+    <!--<property name="URL" value="http://localhost:4444/wd/hub"/>-->
+
     <!--Tasks definitions-->
     <taskdef resource="net/sf/antcontrib/antcontrib.properties">
         <classpath>
@@ -47,8 +50,8 @@
                fork="yes"/>
 
         <jar destfile="${jar.dir}${file.separator}Tests.jar" basedir="${bin.dir}"/>
-    </target>
 
+    </target>
 
     <!--Test targets-->
     <target name="testAll" depends="prepare">
@@ -57,6 +60,36 @@
             <fileset dir="${lib.dir}" includes="/*.jar"/>
             <fileset dir="${jar.dir}" includes="**/*jar"/>
         </path>
+
+        <if>
+            <isset property="browser"/>
+            <else>
+                <property name="browser" value="firefox"/>
+            </else>
+        </if>
+
+        <if>
+            <isset property="URL"/>
+            <!--<then>-->
+            <!--<exec dir="${basedir}" executable="cmd" os="Windows 7">-->
+            <!--<arg line="/c selenium_hub.bat"/>-->
+            <!--</exec>-->
+
+            <!--<exec dir="${basedir}" executable="cmd" os="Windows 7">-->
+            <!--<arg line="/c selenium_node2.bat"/>-->
+            <!--</exec>-->
+
+            <!--<exec dir="${basedir}" executable="cmd" os="Windows 7">-->
+            <!--<arg line="/c selenium_node3.bat"/>-->
+            <!--</exec>-->
+            <!--</then>-->
+            <else>
+                <property name="URL" value="default"/>
+            </else>
+        </if>
+
+
+
 
         <testng classpathref="classpath"
                 outputDir="${report.dir}"
@@ -72,6 +105,12 @@
             <sysproperty key="org.uncommons.reportng.title" value="Ask.fm Automated Test Report"/>
             <sysproperty key="org.uncommons.reportng.frames" value="false"/>
             <sysproperty key="org.uncommons.reportng.escape-output" value="false"/>
+
+
+            <sysproperty key="browser" value="${browser}"/>
+            <sysproperty key="webdriver.chrome.driver" value="${lib.dir}${file.separator}chromedriver.exe"/>
+            <sysproperty key="URL" value="${URL}"/>
+
 
             <sysproperty key="report.dir" value="${report.dir}"/>
         </testng>
