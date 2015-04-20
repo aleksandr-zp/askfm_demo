@@ -9,8 +9,6 @@
     <property name="jar.dir" location="${build.dir}${file.separator}jar"/>
     <property name="report.dir" location="${build.dir}${file.separator}report"/>
 
-    <!--<property name="browser" value="chrome"/>-->
-    <property name="URL" value="http://localhost:4444/wd/hub"/>
 
     <!--Tasks definitions-->
     <taskdef resource="net/sf/antcontrib/antcontrib.properties">
@@ -70,19 +68,6 @@
 
         <if>
             <isset property="URL"/>
-            <!--<then>-->
-            <!--<exec dir="${basedir}" executable="cmd" os="Windows 7">-->
-            <!--<arg line="/c selenium_hub.bat"/>-->
-            <!--</exec>-->
-
-            <!--<exec dir="${basedir}" executable="cmd" os="Windows 7">-->
-            <!--<arg line="/c selenium_node2.bat"/>-->
-            <!--</exec>-->
-
-            <!--<exec dir="${basedir}" executable="cmd" os="Windows 7">-->
-            <!--<arg line="/c selenium_node3.bat"/>-->
-            <!--</exec>-->
-            <!--</then>-->
             <else>
                 <property name="URL" value="default"/>
             </else>

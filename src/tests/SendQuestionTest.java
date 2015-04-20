@@ -18,7 +18,7 @@ public class SendQuestionTest extends BaseTest {
 
     @BeforeClass()
     public void CountQuestionBefore() {
-        generalActions = new GeneralActions(driver);
+        generalActions = new GeneralActions(driver.getDriver());
 
     }
 

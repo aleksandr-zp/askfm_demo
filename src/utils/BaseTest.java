@@ -14,7 +14,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BaseTest {
-    public static WebDriver driver;
+    public static ThreadDriver driver;
 
     @Parameters({"browser", "URL"})
     @BeforeClass
@@ -22,9 +22,9 @@ public class BaseTest {
 
         if (URL.equals("default")){
             if (browser.equals("chrome")) {
-                driver = new ChromeDriver();
+                driver.setDriver(new ChromeDriver());
             }else if (browser.equals("firefox")) {
-                driver = new FirefoxDriver();
+                driver.setDriver(new FirefoxDriver());
             }
         }else {
             if (browser.equals("chrome")) {
@@ -33,7 +33,7 @@ public class BaseTest {
                 capabilities.setPlatform(org.openqa.selenium.Platform.WINDOWS);
                 capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
                 try {
-                    driver = new CustomRemoteWebDriver(new URL(URL), capabilities);
+                    driver.setDriver(new CustomRemoteWebDriver(new URL(URL), capabilities));
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
@@ -43,7 +43,7 @@ public class BaseTest {
                 capabilities.setPlatform(org.openqa.selenium.Platform.WINDOWS);
                 capabilities.setCapability(CapabilityType.TAKES_SCREENSHOT, true);
                 try {
-                    driver = new CustomRemoteWebDriver(new URL(URL), capabilities);
+                    driver.setDriver(new CustomRemoteWebDriver(new URL(URL), capabilities));
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 }
@@ -54,6 +54,6 @@ public class BaseTest {
 
     @AfterClass
     public void driverTearDown() {
-//        driver.quit();
+        driver.getDriver().quit();
     }
 }

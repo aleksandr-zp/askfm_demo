@@ -14,7 +14,6 @@ public class GeneralActions {
     private LoginPage loginPage;
     private SendQuestionPage sendQuestionPage;
     private MenuBlock menuBlock;
-    private BasePage page;
 
     public GeneralActions(WebDriver driver) {
         this.driver = driver;
@@ -22,7 +21,6 @@ public class GeneralActions {
         loginPage = new LoginPage(driver);
         sendQuestionPage = new SendQuestionPage(driver);
         menuBlock = new MenuBlock(driver);
-        page = new BasePage(driver);
     }
 
     public void login(String name, String password) {

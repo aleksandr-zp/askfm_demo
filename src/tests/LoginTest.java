@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest {
 
     @BeforeClass
     public void setUp() {
-        generalActions = new GeneralActions(driver);
+        generalActions = new GeneralActions(driver.getDriver());
     }
 
     @Test(dataProvider = "person1", dataProviderClass = StaticProvider.class)
