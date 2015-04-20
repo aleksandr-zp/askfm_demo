@@ -10,7 +10,7 @@
     <property name="report.dir" location="${build.dir}${file.separator}report"/>
 
     <!--<property name="browser" value="chrome"/>-->
-    <!--<property name="URL" value="http://localhost:4444/wd/hub"/>-->
+    <property name="URL" value="http://localhost:4444/wd/hub"/>
 
     <!--Tasks definitions-->
     <taskdef resource="net/sf/antcontrib/antcontrib.properties">

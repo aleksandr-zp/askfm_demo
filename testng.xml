@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="AskFM siute" verbose="3"  parallel="tests" thread-count="2">
+<suite name="AskFM siute" verbose="1"  parallel="tests" thread-count="2">
     <test name="Login Test">
         <classes>
             <class name="tests.LoginTest"/>
