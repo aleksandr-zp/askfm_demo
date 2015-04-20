@@ -73,9 +73,6 @@
             </else>
         </if>
 
-
-
-
         <testng classpathref="classpath"
                 outputDir="${report.dir}"
                 workingDir="${report.dir}"

@@ -3,7 +3,6 @@ package actions;
 
 import blocks.MenuBlock;
 import org.openqa.selenium.WebDriver;
-import pages.BasePage;
 import pages.LoginPage;
 import pages.SendQuestionPage;
 import utils.Reporter;

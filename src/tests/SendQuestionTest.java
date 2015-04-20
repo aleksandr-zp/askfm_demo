@@ -1,7 +1,6 @@
 package tests;
 
 import actions.GeneralActions;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -18,7 +17,7 @@ public class SendQuestionTest extends BaseTest {
 
     @BeforeClass()
     public void CountQuestionBefore() {
-        generalActions = new GeneralActions(driver.getDriver());
+        generalActions = new GeneralActions(driver.get());
 
     }
 
